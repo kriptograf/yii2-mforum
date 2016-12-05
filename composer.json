@@ -4,6 +4,9 @@
     "type": "yii2-extension",
     "keywords": ["yii2","extension","forum"],
     "license": "MIT",
+    "support": {
+        "source": "https://github.com/kriptograf/yii2-mforum"
+    },
     "authors": [
         {
             "name": "kriptograf",
@@ -11,8 +14,17 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.0"
+        "yiisoft/yii2": "~2.0.0",
+        "dektrium/yii2-user": "*",
+        "kartik-v/yii2-markdown": "dev-master",
+        "nemmo/yii2-attachments": "dev-master"
     },
+    "repositories":[
+        {
+            "type": "git",
+            "url": "https://github.com/kriptograf/yii2-mforum"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "kriptograf\\mforum\\": ""
