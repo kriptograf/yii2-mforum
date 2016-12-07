@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\forum\models\Forum */
+/* @var $model kriptograf\mforum\models\Forum */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Forums', 'url' => ['index']];

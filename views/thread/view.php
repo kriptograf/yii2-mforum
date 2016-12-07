@@ -64,11 +64,11 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 
     <?php if($model->is_locked && Yii::$app->user->identity->isAdmin) {
-        echo $this->render('@vendor/kriptograf/mforum/views/post/create', [
+        echo $this->render('@vendor/kriptograf/yii2-mforum/views/post/create', [
             'model' => $modelPost,
         ]);
     } elseif (!$model->is_locked && !Yii::$app->user->isGuest) {
-        echo $this->render('@vendor/kriptograf/mforum/views/post/create', [
+        echo $this->render('@vendor/kriptograf/yii2-mforum/views/post/create', [
             'model' => $modelPost,
         ]);
     } ?>

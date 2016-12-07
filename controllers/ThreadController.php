@@ -68,7 +68,7 @@ class ThreadController extends Controller
         $modelPost->editor_id = Yii::$app->user->identity->id;
         if ($modelPost->load(Yii::$app->request->post()) && $modelPost->save()) {
             // send email
-                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newpost', ['content' => $modelPost->content])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/yii2-mforum/views/mail/text/newpost', ['content' => $modelPost->content])
                     ->setFrom([\Yii::$app->params['forumEmailSender']])
                     ->setTo(\dektrium\user\models\User::find()
                         ->where([
@@ -126,7 +126,7 @@ class ThreadController extends Controller
                 $modelPost->save();
 
                 // send email to admin
-                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newtopic', ['subject' => $model->subject])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/yii2-mforum/views/mail/text/newtopic', ['subject' => $model->subject])
                     ->setFrom(\Yii::$app->params['forumEmailSender'])
                     ->setTo(\Yii::$app->params['adminEmail'])
                     ->setSubject('New Topic')
@@ -149,7 +149,7 @@ class ThreadController extends Controller
                 $modelPost->save();
 
                 // send email to admin
-                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newtopic', ['subject' => $model->subject])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/yii2-mforum/views/mail/text/newtopic', ['subject' => $model->subject])
                     ->setFrom(\Yii::$app->params['forumEmailSender'])
                     ->setTo(\Yii::$app->params['adminEmail'])
                     ->setSubject('New Topic')

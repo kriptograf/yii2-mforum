@@ -80,7 +80,7 @@ class PostController extends Controller
         if(!$isLocked) {
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 // send email to author
-                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newpost', ['content' => $model->content])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/yii2-mforum/views/mail/text/newpost', ['content' => $model->content])
                     ->setFrom([\Yii::$app->params['forumEmailSender']])
                     ->setTo(\dektrium\user\models\User::find()
                         ->where([
