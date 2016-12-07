@@ -46,7 +46,7 @@ migrations. Make sure that you have properly configured `db` application compone
 and run the following command:
 
 ```bash
-$ php yii migrate/up --migrationPath=@vendor/kriptograf/mforum/migrations
+$ php yii migrate/up --migrationPath=@vendor/kriptograf/yii2-mforum/migrations
 ```
 
 
