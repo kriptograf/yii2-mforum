@@ -13,6 +13,7 @@ use kriptograf\mforum\components\AccessRule;
 use yii\data\Pagination;
 /**
  * ForumController implements the CRUD actions for Forum model.
+ * @todo настроить rbac
  */
 class ForumController extends Controller
 {
@@ -52,8 +53,8 @@ class ForumController extends Controller
             ->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            //'searchModel' => $searchModel,
+            //'dataProvider' => $dataProvider,
             'forums' => $forums,
         ]);
     }

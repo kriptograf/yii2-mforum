@@ -68,11 +68,11 @@ class ThreadController extends Controller
         $modelPost->editor_id = Yii::$app->user->identity->id;
         if ($modelPost->load(Yii::$app->request->post()) && $modelPost->save()) {
             // send email
-                \Yii::$app->mailer->compose('@vendor/ivan/yii2-simpleforum/views/mail/text/newpost', ['content' => $modelPost->content])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newpost', ['content' => $modelPost->content])
                     ->setFrom([\Yii::$app->params['forumEmailSender']])
                     ->setTo(\dektrium\user\models\User::find()
                         ->where([
-                            'id' => \ivan\simpleforum\models\Post::find()
+                            'id' => \kriptograf\mforum\models\Post::find()
                                         ->where(['thread_id' => $modelPost->thread_id])
                                         ->orderBy(['id' => SORT_ASC])
                                         ->one()->author_id
@@ -112,7 +112,7 @@ class ThreadController extends Controller
         $model->view_count = 0;
         $model->forum_id = Yii::$app->getRequest()->getQueryParam('forum_id');
 
-        $isLocked = \ivan\simpleforum\models\Forum::find()
+        $isLocked = \kriptograf\mforum\models\Forum::find()
             ->where(['id' => $model->forum_id])
             ->one()->is_locked;
         
@@ -126,7 +126,7 @@ class ThreadController extends Controller
                 $modelPost->save();
 
                 // send email to admin
-                \Yii::$app->mailer->compose('@vendor/ivan/yii2-simpleforum/views/mail/text/newtopic', ['subject' => $model->subject])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newtopic', ['subject' => $model->subject])
                     ->setFrom(\Yii::$app->params['forumEmailSender'])
                     ->setTo(\Yii::$app->params['adminEmail'])
                     ->setSubject('New Topic')
@@ -149,7 +149,7 @@ class ThreadController extends Controller
                 $modelPost->save();
 
                 // send email to admin
-                \Yii::$app->mailer->compose('@vendor/ivan/yii2-simpleforum/views/mail/text/newtopic', ['subject' => $model->subject])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newtopic', ['subject' => $model->subject])
                     ->setFrom(\Yii::$app->params['forumEmailSender'])
                     ->setTo(\Yii::$app->params['adminEmail'])
                     ->setSubject('New Topic')

@@ -1,4 +1,7 @@
 <?php
+/**
+ * @todo добавить i18n
+ */
 
 namespace kriptograf\mforum;
 

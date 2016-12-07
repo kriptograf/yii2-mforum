@@ -72,7 +72,7 @@ class PostController extends Controller
         $model->author_id = Yii::$app->user->identity->id;
         $model->editor_id = Yii::$app->user->identity->id;
 
-        $isLocked = \ivan\simpleforum\models\Thread::find()
+        $isLocked = \kriptograf\mforum\models\Thread::find()
             ->joinWith('posts')
             ->where(['thread_id' => $model->thread_id])
             ->one()->is_locked;
@@ -80,11 +80,11 @@ class PostController extends Controller
         if(!$isLocked) {
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 // send email to author
-                \Yii::$app->mailer->compose('@vendor/ivan/yii2-simpleforum/views/mail/text/newpost', ['content' => $model->content])
+                \Yii::$app->mailer->compose('@vendor/kriptograf/mforum/views/mail/text/newpost', ['content' => $model->content])
                     ->setFrom([\Yii::$app->params['forumEmailSender']])
                     ->setTo(\dektrium\user\models\User::find()
                         ->where([
-                            'id' => \ivan\simpleforum\models\Post::find()
+                            'id' => \kriptograf\mforum\models\Post::find()
                                         ->where(['thread_id' => $model->thread_id])
                                         ->orderBy(['id' => SORT_ASC])
                                         ->one()->author_id

@@ -16,9 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
     		<?php
-    		if(Yii::$app->user->identity->isAdmin)
-        		echo Html::a('Create Forum', ['create'], ['class' => 'btn btn-success btn-sm']) ;
-     	?>
+            if(Yii::$app->user->can('admin')){
+                echo Html::a('Create Forum', ['create'], ['class' => 'btn btn-success btn-sm']) ;
+            }?>
     </p>
 
     <?= $this->render('_forums', ['forums' => $forums]); ?>
