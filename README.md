@@ -31,6 +31,7 @@ Add following lines to your main configuration file:
     ...
     'forum' => [
         'class' => 'kriptograf\mforum\Module',
+        'defaultRoute'=>'forum/index'
     ],
     //depends extensions
     'markdown' => [
